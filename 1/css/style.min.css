@@ -1234,7 +1234,8 @@ img {
 .form {
   position: relative;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: flex-end; }
 
 .form__label {
   position: absolute;
@@ -1271,7 +1272,10 @@ img {
   color: #5f458c;
   border: 0;
   border-radius: 3rem;
-  outline: none; }
+  outline: none;
+  animation-name: field-grow;
+  animation-duration: 1s;
+  animation-fill-mode: forwards; }
   .form__field:focus {
     border: 1px solid #a67ee5; }
   @media (min-width: 2000px) {
@@ -1300,46 +1304,47 @@ img {
       height: 4rem;
       font-size: 1.6rem; } }
 
-.form__button {
-  flex-grow: 1; }
+@media (orientation: portrait) {
+  .form__button {
+    position: relative;
+    flex: none;
+    padding: 0;
+    width: 4rem;
+    height: 4rem;
+    font-size: 0; } }
+
+@media (max-width: 1024px) and (orientation: landscape) {
+  .form__button {
+    position: relative;
+    flex: none;
+    padding: 0;
+    width: 6rem;
+    height: 6rem;
+    font-size: 0; } }
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .form__button {
+    width: 4rem;
+    height: 4rem; } }
+
+.form__button svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  width: 1.6rem;
+  height: 1.8rem; }
+  @media (min-width: 2000px) {
+    .form__button svg {
+      width: 16px;
+      height: 18px; } }
   @media (orientation: portrait) {
-    .form__button {
-      position: relative;
-      flex: none;
-      padding: 0;
-      width: 4rem;
-      height: 4rem;
-      font-size: 0; } }
+    .form__button svg {
+      display: block; } }
   @media (max-width: 1024px) and (orientation: landscape) {
-    .form__button {
-      position: relative;
-      flex: none;
-      padding: 0;
-      width: 6rem;
-      height: 6rem;
-      font-size: 0; } }
-  @media (max-width: 768px) and (orientation: landscape) {
-    .form__button {
-      width: 4rem;
-      height: 4rem; } }
-  .form__button svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    width: 1.6rem;
-    height: 1.8rem; }
-    @media (min-width: 2000px) {
-      .form__button svg {
-        width: 16px;
-        height: 18px; } }
-    @media (orientation: portrait) {
-      .form__button svg {
-        display: block; } }
-    @media (max-width: 1024px) and (orientation: landscape) {
-      .form__button svg {
-        display: block; } }
+    .form__button svg {
+      display: block; } }
 
 .form--result .form__field {
   width: calc(100% - 31rem); }
@@ -1355,6 +1360,13 @@ img {
   @media (max-width: 768px) and (orientation: landscape) {
     .form--result .form__field {
       width: calc(100% - 5rem); } }
+
+@keyframes field-grow {
+  from {
+    flex-grow: 0;
+    width: 0; }
+  to {
+    flex-grow: 1; } }
 
 .game {
   flex-grow: 1;
@@ -2846,11 +2858,11 @@ img {
 
 .swiper-slide-active .slider__item-text, .swiper-slide-next .slider__item-text {
   animation-name: slide-block;
-  animation-duration: 0.5s;
+  animation-duration: 0.75s;
   animation-fill-mode: backwards; }
 
 .swiper-slide-next .slider__item-text {
-  animation-delay: 0.25s; }
+  animation-delay: 0.5s; }
 
 .slider__item {
   display: flex;
@@ -3074,7 +3086,7 @@ img {
 @keyframes slide-block {
   from {
     opacity: 0;
-    transform: translateX(50px); }
+    transform: translateX(75px); }
   to {
     opacity: 1;
     transform: translateX(0); } }
