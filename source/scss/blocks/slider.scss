@@ -17,14 +17,14 @@
   &-next {
     .slider__item-text {
       animation-name: slide-block;
-      animation-duration: 0.5s;
+      animation-duration: 0.75s;
       animation-fill-mode: backwards;
     }
   }
 
   &-next {
     .slider__item-text {
-      animation-delay: 0.25s;
+      animation-delay: 0.5s;
     }
   }
 }
@@ -296,7 +296,7 @@
 @keyframes slide-block {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(75px);
   }
   to {
     opacity: 1;
