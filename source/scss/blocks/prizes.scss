@@ -58,6 +58,8 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  opacity: 0;
+  animation: show-prizes-lead 1s forwards;
 
   @media (min-width: $stop-scaling) {
     margin-left: 58px;
@@ -94,6 +96,8 @@
   justify-content: flex-end;
   align-items: flex-end;
   margin-top: auto;
+  opacity: 0;
+  animation: show-prizes-list 1s forwards;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     flex-direction: column;
@@ -328,5 +332,29 @@
       width: 0.5rem;
       height: 0.5rem;
     }
+  }
+}
+
+@keyframes show-prizes-lead {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes show-prizes-list {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
