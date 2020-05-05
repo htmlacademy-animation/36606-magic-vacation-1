@@ -16,9 +16,7 @@
   &-active,
   &-next {
     .slider__item-text {
-      animation-name: slide-block;
-      animation-duration: 0.75s;
-      animation-fill-mode: backwards;
+      animation: slide-block 0.75s backwards;
     }
   }
 
