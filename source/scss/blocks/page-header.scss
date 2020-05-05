@@ -138,6 +138,12 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity 1s $custom-cubic-bezier;
+
+  .page--loaded & {
+    opacity: 1;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -185,12 +191,6 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
-  opacity: 0;
-  transition: opacity 1s $custom-cubic-bezier;
-
-  .page--loaded & {
-    opacity: 1;
-  }
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -265,7 +265,7 @@
       width: 0;
       height: 2px;
       background-color: $c-light;
-      transition: width 0.3s $custom-cubic-bezier 0.5s;
+      transition: width 0.3s $custom-cubic-bezier;
 
       @media (min-width: $stop-scaling) {
         left: -5px;
@@ -297,7 +297,6 @@
     &:focus {
       color: $c-purple;
       outline: none;
-      transition-delay: 0s;
 
       &::after {
         width: 100%;
