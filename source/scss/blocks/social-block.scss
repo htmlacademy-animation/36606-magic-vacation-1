@@ -51,6 +51,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    opacity: 0;
     transition: all 0.5s;
   }
 
@@ -278,16 +279,23 @@
 
 @keyframes change-size {
   0% {
+    opacity: 0;
     width: 0;
     height: 0;
   }
 
+  50% {
+    opacity: 1;
+  }
+
   75% {
+    opacity: 1;
     width: 112.5%;
     height: 112.5%;
   }
 
   100% {
+    opacity: 1;
     width: 100%;
     height: 100%;
   }
