@@ -309,7 +309,9 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  &.active {
+    z-index: 2;
+  }
 }
 
 .screen--game {
@@ -360,4 +362,31 @@
 
 .screen--rules {
   background-color: $c-dark;
+}
+
+.screen__bg {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+
+  &--prizes {
+    background-color: $c-dark;
+  }
+
+  &.active {
+    animation: show-bg 1s forwards;
+  }
+}
+
+@keyframes show-bg {
+  from {
+    top: 100%;
+  }
+
+  to {
+    top: 0;
+  }
 }
