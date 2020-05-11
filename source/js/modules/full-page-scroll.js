@@ -2,6 +2,7 @@
 /* eslint-disable indent */
 import throttle from "lodash/throttle";
 import { titleAccentTypography, dateAccentTypography } from "./intro";
+import { historyTitleAccentTypography } from "./history";
 
 export default class FullPageScroll {
   constructor() {
@@ -38,13 +39,19 @@ export default class FullPageScroll {
     }
   }
 
-  animateIntroTexts() {
+  animateTexts() {
     if (this.activeScreen === 0) {
       setTimeout(() => titleAccentTypography.runAnimation(), 500);
       setTimeout(() => dateAccentTypography.runAnimation(), 1000);
     } else {
       titleAccentTypography.destroyAnimation();
       dateAccentTypography.destroyAnimation();
+    }
+
+    if (this.activeScreen === 1) {
+      setTimeout(() => historyTitleAccentTypography.runAnimation(), 250);
+    } else {
+      historyTitleAccentTypography.destroyAnimation();
     }
   }
 
@@ -54,7 +61,7 @@ export default class FullPageScroll {
     );
     this.activeScreen = newIndex < 0 ? 0 : newIndex;
     this.changePageDisplay();
-    this.animateIntroTexts();
+    this.animateTexts();
   }
 
   changePageDisplay() {
