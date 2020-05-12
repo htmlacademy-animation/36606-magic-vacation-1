@@ -170,6 +170,23 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  opacity: 0;
+  visibility: hidden;
+
+  &--prev,
+  &--next {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+  }
+
+  &--prev {
+    animation-name: slider-control-left;
+  }
+
+  &--next {
+    animation-name: slider-control-right;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -300,5 +317,41 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes slider-control-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50rem) rotate(-360deg);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes slider-control-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50rem) rotate(-360deg);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) rotate(0);
   }
 }
